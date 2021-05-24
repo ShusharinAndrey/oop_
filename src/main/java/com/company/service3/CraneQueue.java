@@ -64,7 +64,7 @@ public class CraneQueue {
 
 
     public void endTime() {
-        System.out.println(mSchedule.size() + mQueueVessel.size());
+//        System.out.println(mSchedule.size() + mQueueVessel.size());
         for (Vessel vessel : mSchedule) {
             addStatistic(vessel);
         }
@@ -200,7 +200,7 @@ public class CraneQueue {
                         }
                     }
                 } else {
-                    System.out.println("Stop with interrupt");
+//                    System.out.println("Stop with interrupt");
                     return;
                 }
             }

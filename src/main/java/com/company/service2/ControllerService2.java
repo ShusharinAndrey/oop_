@@ -1,22 +1,37 @@
 package com.company.service2;
 
-import com.company.OopApplication;
 import com.company.service1.Schedule;
 import com.company.service3.Statistic;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.HashMap;
+import java.util.Map;
 
+import static com.company.Service3.PATH_1;
+
+@SpringBootApplication
 @RestController
 @RequestMapping(value = "/service2")
 public class ControllerService2 {
+
+    public static void main(String[] args) {
+        SpringApplication app = new SpringApplication(ControllerService2.class);
+        Map<String, Object> map = new HashMap<>();
+        map.put("server.port", "8280");
+        map.put("server.host", "localhost");
+        app.setDefaultProperties(map);
+        app.run();
+    }
 
     @GetMapping("/scheduleJson")
     public String getScheduleJson(@RequestParam(value = "quantity", defaultValue = "1000") int quantity) {
         RestTemplateBuilder builder = new RestTemplateBuilder();
         RestTemplate restTemplate = builder.build();
-        String stringSchedule = restTemplate.getForObject(OopApplication.PATH + "service1/schedule?quantity=" + quantity, String.class);
+        String stringSchedule = restTemplate.getForObject(PATH_1 + "schedule?quantity=" + quantity, String.class);
 
         Schedule schedule = new Schedule();
         Service2.read(stringSchedule, schedule);
@@ -37,5 +52,41 @@ public class ControllerService2 {
         Statistic statistics;
         statistics = Service2.read(str);
         Service2.writeJson("statistic", statistics);
+    }
+
+    @RequestMapping("")
+    public String service2() {
+        return "<!DOCTYPE HTML>\n" +
+                "<html lang=\"ru\">\n" +
+                "<head>\n" +
+                "    <title>Порт</title>\n" +
+                "    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"/>\n" +
+                "</head>\n" +
+                "<body>\n" +
+                "\n" +
+                "<b><label>Второй сервис</label>\n" +
+                "    <p><a href=\"/service2/scheduleJson\">Создать расписание на 1000 кораблей и записать его в json file \"Schedule\"</a></p>\n" +
+                "    <form action=\"/service2/scheduleJson\" method=\"GET\" id=\"quantityFormJson\">\n" +
+                "        <div>\n" +
+                "            <label for=\"quantityFieldJson\">Создать расписание на</label>\n" +
+                "            <input name=\"quantity\" id=\"quantityFieldJson\">\n" +
+                "            <label for=\"quantityFieldJson\">кораблей</label>\n" +
+                "            <button>Создать</button>\n" +
+                "        </div>\n" +
+                "    </form>\n" +
+                "    </p>\n" +
+                "</b>\n" +
+                "<p><a href=\"/service2/scheduleJsonByName\">Прочитать расписание из json file \"Schedule\"</a></p>\n" +
+                "<form action=\"/service2/scheduleJsonByName\" method=\"GET\" id=\"quantityFormJsonByName\">\n" +
+                "    <div>\n" +
+                "        <label for=\"quantityFieldJsonByName\">Прочитать расписание из json file</label>\n" +
+                "        <input name=\"nameFile\" id=\"quantityFieldJsonByName\">\n" +
+                "        <button>Прочитать</button>\n" +
+                "    </div>\n" +
+                "</form>\n" +
+                "</p>\n" +
+                "</b>\n" +
+                "</body>\n" +
+                "</html>";
     }
 }

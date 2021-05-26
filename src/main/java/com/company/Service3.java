@@ -17,7 +17,6 @@ public class Service3 {
     private static final String PATH_2 = "http://localhost:8280/service2/";
 
     public static void main(String[] args) {
-
         Schedule schedule = new Schedule();
         RestTemplateBuilder builder = new RestTemplateBuilder();
         RestTemplate restTemplate = builder.build();

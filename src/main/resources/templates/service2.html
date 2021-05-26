@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+<head>
+  <title>Порт</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<b><label>Второй сервис</label>
+  <p><a href="/service2/scheduleJson">Создать расписание на 1000 кораблей и записать его в json file "Schedule"</a></p>
+  <form action="/service2/scheduleJson" method="GET" id="quantityFormJson">
+    <div>
+      <label for="quantityFieldJson">Создать расписание на</label>
+      <input name="quantity" id="quantityFieldJson">
+      <label for="quantityFieldJson">кораблей</label>
+      <button>Создать</button>
+    </div>
+  </form>
+  </p>
+</b>
+<p><a href="/service2/scheduleJsonByName">Прочитать расписание из json file "Schedule"</a></p>
+<form action="/service2/scheduleJsonByName" method="GET" id="quantityFormJsonByName">
+  <div>
+    <label for="quantityFieldJsonByName">Прочитать расписание из json file</label>
+    <input name="nameFile" id="quantityFieldJsonByName">
+    <button>Прочитать</button>
+  </div>
+</form>
+</p>
+</b>
+</body>
+</html>

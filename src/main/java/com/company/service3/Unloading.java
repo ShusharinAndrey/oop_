@@ -30,39 +30,39 @@ public class Unloading {
         return mName;
     }
 
-    public String getArrival() {
-        return mArrival.toString();
-    }
-
-    public String getBeginning() {
-        return new MyDate(mArrival.getDayMinute() + mWaiting.getDayMinute()).toString();
-    }
-
-    public String getWaiting() {
-        return mWaiting.toString();
-    }
-
-    public String getDuration() {
-        return mDuration.toString();
-    }
-
     public void setName(String mName) {
         this.mName = mName;
+    }
+
+    public String getArrival() {
+        return mArrival.toString();
     }
 
     public void setArrival(String mArrival) {
         this.mArrival = new MyDate(mArrival);
     }
 
+    public String getBeginning() {
+        return new MyDate(mArrival.getDayMinute() + mWaiting.getDayMinute()).toString();
+    }
+
+    public void setBeginning(String beginning) {
+    }
+
+    public String getWaiting() {
+        return mWaiting.toString();
+    }
+
     public void setWaiting(String mWaiting) {
         this.mWaiting = new MyDuration(mWaiting);
     }
 
-    public void setDuration(String mDuration) {
-        this.mDuration = new MyDuration(mDuration);
+    public String getDuration() {
+        return mDuration.toString();
     }
 
-    public void setBeginning(String beginning) {
+    public void setDuration(String mDuration) {
+        this.mDuration = new MyDuration(mDuration);
     }
 
 }

@@ -1,6 +1,5 @@
 package com.company.service1;
 
-import com.company.service2.Service2;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import java.util.ArrayList;

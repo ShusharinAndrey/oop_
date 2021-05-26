@@ -89,7 +89,7 @@ public class CraneQueue {
                     minNextTime = Math.min(minNextTime, mCranes.get(i).getEndTime());
                 }
                 mGlobalTime = minNextTime + 1;
-     //           System.out.println("Clock"+Thread.currentThread().getName());
+                //           System.out.println("Clock"+Thread.currentThread().getName());
                 int timeArrivalVessels = 0;
                 synchronized (mSchedule) {
 //                    System.out.println(mGlobalTime);
@@ -153,8 +153,8 @@ public class CraneQueue {
             mDateArrival = new MyDate(vessel.getDateArrival());
             mUnloadingTime = vessel.getCargo().getUnloadingTime().getDayMinute();
         }
-        private void delay_()
-        {
+
+        private void delay_() {
 //            for (int i = 0; i < 10000; i++) {
 //                System.out.println(i);
 //            }
@@ -168,7 +168,7 @@ public class CraneQueue {
                     if (!mIsFree) {
                         try {
                             delay_();
-             //                   System.out.println(Thread.currentThread().getName());
+                            //                   System.out.println(Thread.currentThread().getName());
                             BARRIER.await();
                         } catch (InterruptedException | BrokenBarrierException e) {
 //                            e.printStackTrace();

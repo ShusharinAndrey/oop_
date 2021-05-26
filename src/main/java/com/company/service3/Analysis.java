@@ -45,7 +45,7 @@ public class Analysis {
                     new CraneQueue(craneContainer, queueContainer, statistic).run();
                     statistic.calculateAverage();
                     statistics.add(statistic);
-                 //   System.out.println(craneBulk + " " + craneLiquid + " " + craneContainer);
+                    //   System.out.println(craneBulk + " " + craneLiquid + " " + craneContainer);
                 }
             }
         }

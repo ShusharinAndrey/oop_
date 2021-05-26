@@ -12,7 +12,7 @@ public class MyDuration extends MyDate {
     }
 
     public MyDuration(String string) {
-        calculate(Integer.parseInt(string.substring(0,2)), Integer.parseInt(string.substring(3,5)), Integer.parseInt(string.substring(6,8)));
+        calculate(Integer.parseInt(string.substring(0, 2)), Integer.parseInt(string.substring(3, 5)), Integer.parseInt(string.substring(6, 8)));
     }
 
     @Override

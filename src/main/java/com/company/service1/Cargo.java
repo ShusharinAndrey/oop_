@@ -46,7 +46,7 @@ public class Cargo {
     }
 
     private void calculateUnloadingTime() {
-        mUnloadingTime = new MyDuration((int) ((mType.ordinal() + 10) * mWeight/10));
+        mUnloadingTime = new MyDuration((int) ((mType.ordinal() + 10) * mWeight / 10));
     }
 
     public enum Type {BULK, LIQUID, CONTAINER}

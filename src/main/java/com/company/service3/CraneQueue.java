@@ -63,7 +63,7 @@ public class CraneQueue {
     }
 
 
-    public void endTime() {
+    private void endTime() {
 //        System.out.println(mSchedule.size() + mQueueVessel.size());
         for (Vessel vessel : mSchedule) {
             addStatistic(vessel);
@@ -80,7 +80,7 @@ public class CraneQueue {
     }
 
 
-    public class Clock implements Runnable {
+    private class Clock implements Runnable {
         @Override
         public void run() {
             synchronized (mGlobalTime) {
@@ -130,7 +130,7 @@ public class CraneQueue {
             mIsFirst = false;
         }
 
-        synchronized void add(Vessel vessel) {
+        private synchronized void add(Vessel vessel) {
             Random random = new Random();
             mIsFirst = true;
             mDuration = 0;
@@ -210,7 +210,7 @@ public class CraneQueue {
 //            System.out.println("stop2");
         }
 
-        public synchronized void setFree() {
+        private synchronized void setFree() {
             if (mIsFirst) {
                 synchronized (mStatistic) {
                     mTime = getEndTime();
@@ -228,7 +228,7 @@ public class CraneQueue {
 //            System.out.print("true "+ mIsFirst+" ");
         }
 
-        public synchronized void setSecond() {
+        private synchronized void setSecond() {
             mUnloadingTime /= 2;
         }
 
@@ -259,11 +259,11 @@ public class CraneQueue {
             }
         }
 
-        public synchronized int getUnloadingTime() {
+        private synchronized int getUnloadingTime() {
             return mUnloadingTime + mDelay;
         }
 
-        public synchronized int getEndTime() {
+        private synchronized int getEndTime() {
             if (mIsFirst) {
                 return getUnloadingTime() + mTime;
             } else {

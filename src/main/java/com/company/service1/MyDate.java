@@ -44,10 +44,10 @@ public class MyDate {
     }
 
     public int getDay() {
-        return mDay + 1;
+        return mDay;
     }
 
-    public void setDay(int day) {
+    private void setDay(int day) {
         if (day < getMinDay()) {
             day = getMinDay();
         } else if (day >= MAX_DAY) {
@@ -57,7 +57,7 @@ public class MyDate {
         this.mDay = day;
     }
 
-    public int getHour() {
+    private int getHour() {
         return mHour;
     }
 

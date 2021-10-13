@@ -83,7 +83,7 @@ public class Statistic {
         this.mAverageLengthUnloadingQueue = mAverageLengthUnloadingQueue;
     }
 
-    public void calculateAverageLengthUnloadingQueue() {
+    private void calculateAverageLengthUnloadingQueue() {
         if (mQuantityLengthUnloadingQueue != 0) {
             mAverageLengthUnloadingQueue = mAverageLengthUnloadingQueue / mQuantityLengthUnloadingQueue;
         } else {
@@ -104,7 +104,7 @@ public class Statistic {
         this.mAverageWaitingTimeQueue = mAverageWaitingTimeQueue;
     }
 
-    public void calculateAverageWaitingTimeQueue() {
+    private void calculateAverageWaitingTimeQueue() {
         if (mQuantityWaitingTimeQueue != 0) {
             mAverageWaitingTimeQueue = mAverageWaitingTimeQueue / mQuantityWaitingTimeQueue;
         } else {
@@ -139,7 +139,7 @@ public class Statistic {
         this.mAverageUnloadingDelay = mAverageUnloadingDelay;
     }
 
-    public void calculateAverageUnloadingDelay() {
+    private void calculateAverageUnloadingDelay() {
         if (mQuantityUnloadingDelay != 0 && getQuantityUnloadingVessel() != 0) {
             mAverageUnloadingDelay = mAverageUnloadingDelay / getQuantityUnloadingVessel();
         } else {

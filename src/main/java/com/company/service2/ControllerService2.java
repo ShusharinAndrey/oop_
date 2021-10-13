@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.company.Service3.PATH_1;
+import static com.company.service3.Service3.PATH_1;
 
 @SpringBootApplication
 @RestController

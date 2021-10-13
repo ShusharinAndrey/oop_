@@ -1,4 +1,4 @@
-package com.company;
+package com.company.service3;
 
 import com.company.service1.Schedule;
 import com.company.service2.Service2;

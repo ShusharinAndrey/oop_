@@ -22,7 +22,7 @@ public class ControllerService1 {
         map.put("server.port", "8180");
         map.put("server.host", "localhost");
         app.setDefaultProperties(map);
-        app.run();
+        app.run(args);
     }
 
     @GetMapping("/schedule")

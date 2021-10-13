@@ -28,15 +28,6 @@ public class Service2 {
         }
     }
 
-    public static Statistic read(String src) {
-        try {
-            return new Statistic(new ObjectMapper().readValue(src, Statistic.class));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
     public static void writeConsole(Schedule schedule) {
         System.out.println(write(schedule));
     }
@@ -63,11 +54,7 @@ public class Service2 {
         read(System.in, schedule);
     }
 
-//    public static void readString(Schedule schedule) {
-//        read(System.in, schedule);
-//    }
-
-    public static void read(InputStream src, Schedule schedule) {
+    private static void read(InputStream src, Schedule schedule) {
         if (schedule.getVessels() == null) {
             schedule.setVessels(new ArrayList<>());
         }
@@ -87,5 +74,14 @@ public class Service2 {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static Statistic read(String src) {
+        try {
+            return new Statistic(new ObjectMapper().readValue(src, Statistic.class));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
